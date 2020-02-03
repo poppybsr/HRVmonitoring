@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HRV test3</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container col-md-6" id="age">
+        <h2>Project 492 </h2>
+
+        <!-- <div class="card" v-for="age in age">
+            <div class="card-body">
+                <h5 class="card-title">age {{age}}</h5>
+            </div>
+        </div> -->
+
+        <!-- display age times=name of array -->
+        <div class="card" v-for="time in times">
+            <div class="card-body">
+                <h5 class="card-title">time {{time.time}}</h5>
+                <p class="card-text text-muted">value {{time.value}}</p>
+            </div>
+        </div>
+        <hr>
+        <!-- form design -->
+        <form class="form-group" @submit.prevent="storeMessage">
+            <!-- <label for="">input age</label> -->
+            <textarea name="ageInput" class="form-control" v-model="age"></textarea>
+            <!-- <input type="text" class="form-control" v-model='valueECG'><br> -->
+            <button type="submit" class="btn btn-primary">conferm</button>
+        </form>
+    </div>
+    
+    <!-- bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyC53CElgy6_GnC7cqEpssoiy8PTUqaKQtw",
+    authDomain: "testproject-f502c.firebaseapp.com",
+    databaseURL: "https://testproject-f502c.firebaseio.com",
+    projectId: "testproject-f502c",
+    storageBucket: "testproject-f502c.appspot.com",
+    messagingSenderId: "1063968742264",
+    appId: "1:1063968742264:web:2a40df3abfb512371d068d",
+    measurementId: "G-YHQZ3RL38S"
+  };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="app.js" charset="utf-8"></script>
+</body>
+</html>
