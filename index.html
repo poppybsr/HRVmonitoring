@@ -11,9 +11,9 @@
 <body>
     <div class="container col-md-6" id="age">
         <h2>Project 492 </h2>
-        <div>{{sum}}</div>
-        <div>{{times}}</div>
-        <div class="card" v-for="time in times">
+        <div>{{total}}</div>
+        <div>{{values}}</div>
+        <div class="card" v-for="time in values">
             <div class="card-body">
                 <h5 class="card-title">time {{time}}</h5>
                 <p class="card-text text-muted">value {{time.value}}</p>
@@ -23,7 +23,7 @@
         <!-- form design -->
         <form class="form-group" @submit.prevent="storeMessage">
             <!-- <label for="">input age</label> -->
-            <textarea name="ageInput" class="form-control" v-model="age"></textarea>
+            <textarea name="ageInput" class="form-control" v-model="ageInput"></textarea>
             <!-- <input type="text" class="form-control" v-model='valueECG'><br> -->
             <button type="submit" class="btn btn-primary">conferm</button>
         </form>
