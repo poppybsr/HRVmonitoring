@@ -37,8 +37,9 @@ new Vue({
             }
                 this.square = Math.sqrt(this.sum)                   //square
                 this.total = this.square/this.count
+                this.total = parseFloat(this.total).toFixed(2);
             //console.log(this.minus)
-        }
+        },
     },
 
     created() {
