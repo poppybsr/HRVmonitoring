@@ -42,7 +42,7 @@ h6 {
 }
 
 .border{
-  background-color: lightblue;
+  background-color: whitesmoke;
   padding-top: 50px;
   padding-right: 30px;
   padding-bottom: 50px;
@@ -372,4 +372,12 @@ a:hover, a:focus, a:active {
 
 .text-secondary {
   color: #ecb807 !important;
+}
+
+.text-white {
+  color: #fff!important;
+}
+
+.text-select {
+  color: #212F3D !important;
 }

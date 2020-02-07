@@ -24,17 +24,25 @@
 </head>
   
 <body>
-      <!-- Header -->
+      <!-- section -->
     <section class="masthead d-flex">
         <div class="container text-center">
-        <h1 class="mb-1"> Heart Rate Monitoring</h1>
-        <!-- call app.ja -->
+        <h1 class="mb-1"> Heart Rate Monitoring </h1><br><br><br>
         <h2> HRV is .... </h2>
-        <div class="container col-md-6" id="age">   
+        <!-- call app.js -->
+            <div class="container col-md-6" id="age">   
+                <h1 class="border text-select">{{total}}</h1> <br><br>
+            </div>
+        <!-- input age -->
+        <form>
+            <h2>Enter your age<br></Input></h2><br>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="ageInput" class="sr-only">Age</label>
+              <input type="number" class="form-control" id="ageInput" placeholder="Age">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+          </form>
 
-            
-            <h1 class="border">{{total}}</h1>
-        </div>
         <div class="overlay"></div>
     </section>
 
