@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -12,6 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- cavas js -->
+    <script type="text/javascript" src="canvasjs.min.js"></script>
   
     <!-- Custom Fonts -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -20,19 +22,77 @@
   
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.min.css" rel="stylesheet">
-  
+ 
+    <script>
+        window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,  
+            title:{
+                text: "Music Album Sales by Year"
+            },
+            axisY: {
+                title: "Units Sold",
+                valueFormatString: "#0,,.",
+                suffix: "mn",
+            },
+            data: [{
+                // yValueFormatString: "#,### Units",
+                // xValueFormatString: "YYYY",
+                yValueFormatString: "#,### Units",
+                xValueFormatString: "YYYY",
+                type: "spline",
+                
+                dataPoints: [
+                    
+                    // {x: new Date(abc[0], 0), y: abc[1]}
+                    {x: new Date(2002, 0), y: 2500000},
+                    {x: new Date(2003, 0), y: 2798000},
+                    {x: new Date(2004, 0), y: 3386000},
+                    {x: new Date(2005, 0), y: 6944000},
+                    {x: new Date(2006, 0), y: 6026000},
+                    {x: new Date(2007, 0), y: 2394000},
+                    {x: new Date(2008, 0), y: 1872000},
+                    {x: new Date(2009, 0), y: 2140000},
+                    {x: new Date(2010, 0), y: 7289000},
+                    {x: new Date(2011, 0), y: 4830000},
+                    {x: new Date(2012, 0), y: 2009000},
+                    {x: new Date(2013, 0), y: 2840000},
+                    {x: new Date(2014, 0), y: 2396000},
+                    {x: new Date(2015, 0), y: 1613000},
+                    {x: new Date(2016, 0), y: 2821000},
+                    {x: new Date(2017, 0), y: 2000000}
+                ]
+            }]
+        });
+        chart.render();
+        
+        }
+        </script>
 </head>
   
 <body>
+
+
       <!-- section -->
     <section class="masthead d-flex">
         <div class="container text-center">
-        <h1 class="mb-1"> Heart Rate Monitoring </h1><br><br><br>
-        <h2> HRV is .... </h2>
+        <h1 class="mb-1"> Heart Rate Monitoring </h1>
+        <!-- <h2> HRV is .... </h2> -->
         <!-- call app.js -->
-            <div class="container col-md-6" id="age">   
+            <div class="container" id="age">   
                 <h1 class="border text-select">{{total}}</h1> <br><br>
+                <div v-for="abc in arrMax">
+                    <h1 class="border text-select">{{abc[1]}}</h1> 
+                </div>
+                
+                
+
+                <div id="chartContainer" style="height: 280px; width: 100%;"></div> 
+                <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
             </div>
+
+            
         <!-- input age -->
         <form>
             <h2>Enter your age<br></Input></h2><br>
@@ -41,7 +101,7 @@
               <input type="number" class="form-control" id="ageInput" placeholder="Age">
             </div>
             <button type="submit" class="btn btn-primary mb-2">Submit</button>
-          </form>
+        </form>
 
         <div class="overlay"></div>
     </section>

@@ -33,7 +33,8 @@ new Vue({
             this.count = this.arrMax.length - 1
             // console.log(this.arrMax)
             for (var i=0; i<this.count; i++){
-                this.minus[i] = this.arrMax[i+1][1] - this.arrMax[i][1]      //time2-time1                   
+                this.minus[i] = this.arrMax[i+1][1] - this.arrMax[i][1]      //time2-time1       
+                // console.log(this.minus)            
             }
             for(var i=0;i<this.count-1;i++){
                 this.RR[i] = this.minus[i+1] - this.minus[i]    //RR2-RR1
@@ -50,6 +51,8 @@ new Vue({
                 this.total = this.total.toFixed(2)                  //fix dot number
             //console.log(this.minus)
         }
+
+        
         
     },
     
@@ -79,6 +82,7 @@ new Vue({
                 this.maxValue = snapshot.val().value;
                 this.maxTime = snapshot.val().time;
                 this.countDrop--;
+                // console.log(this.maxValue)
             }
             this.calculate(); 
         }) 
