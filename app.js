@@ -1,8 +1,9 @@
 const database = firebase.database();
 const messageRef = database.ref("sensor");
 
+
 new Vue({
-    el:"#age",
+    el:"#webhrv",
     data:{
         age:'',
         values:[],
@@ -19,7 +20,8 @@ new Vue({
         maxValue:0,
         maxTime:0,
         arrMax:[],
-        countDrop:1
+        countDrop:1,
+        test:[1,2,3]
     },
     methods:{
         storeMessage:function(){
@@ -50,6 +52,33 @@ new Vue({
                 this.total = Math.sqrt(this.mean)                   //square
                 this.total = this.total.toFixed(2)                  //fix dot number
             //console.log(this.minus)
+        },
+        chart:function(){
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+            type: 'line',
+            // The data for our dataset
+            
+            data: {
+                labels:[] = this.times,
+                datasets: [{
+                    label: 'ECG values',
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    lineTension:'0.3',
+                    pointBorderColor:'',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data:[] = this.values
+                }]
+                
+            },
+            options: {
+                    labels: {
+                        hidden:true
+                    }
+
+            }
+        });
+
         }
 
         
@@ -85,6 +114,11 @@ new Vue({
                 // console.log(this.maxValue)
             }
             this.calculate(); 
+            this.chart();
         }) 
-    },
+        
+
+
+        
+    }
 })
