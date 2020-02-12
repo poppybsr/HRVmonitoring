@@ -1,6 +1,6 @@
 const database = firebase.database();
 const messageRef = database.ref("sensor");
-
+const messageRef2 = database.ref("allData");
 
 new Vue({
     el:"#webhrv",
@@ -8,6 +8,8 @@ new Vue({
         age:'',
         values:[],
         times:[],
+        values2:[],
+        times2:[],
         allTime:[],
         valueECG:'',
         minus:[],
@@ -60,14 +62,14 @@ new Vue({
             // The data for our dataset
             
             data: {
-                labels:[] = this.times,
+                labels:[] = this.times2,
                 datasets: [{
                     label: 'ECG values',
                     backgroundColor: 'rgba(0, 0, 0, 0)',
                     lineTension:'0.3',
                     pointBorderColor:'',
                     borderColor: 'rgb(255, 99, 132)',
-                    data:[] = this.values
+                    data:[] = this.values2
                 }]
                 
             },
@@ -87,6 +89,12 @@ new Vue({
     
     created(){
         // show data from database
+        messageRef2.on('child_added',snapshot=>{
+            // push data from database to array
+            this.values2.push(snapshot.val().value)
+            this.times2.push(snapshot.val().time)
+            this.chart();
+        })
         messageRef.on('child_added' ,snapshot=>{
             // push data from database to array
             this.values.push(snapshot.val().value)
@@ -114,7 +122,7 @@ new Vue({
                 // console.log(this.maxValue)
             }
             this.calculate(); 
-            this.chart();
+            // this.chart();
         }) 
         
 
