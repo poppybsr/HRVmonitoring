@@ -13,6 +13,7 @@ new Vue({
         allTime:[],
         valueECG:'',
         minus:[],
+        minus2:[],
         RR:[],
         sum:'',
         count:'',
@@ -34,11 +35,16 @@ new Vue({
             this.sum = 0
             this.mean = 0
             this.square = 0
-            this.count = this.arrMax.length - 1
+            this.count = this.times.length - 1
             // console.log(this.arrMax)
             for (var i=0; i<this.count; i++){
-                this.minus[i] = this.arrMax[i+1][1] - this.arrMax[i][1]      //time2-time1       
-                // console.log(this.minus)            
+                this.minus2[i] = this.times[i+1] - this.times[i]     //time2-time1  
+                console.log(this.minus2) 
+            }
+            for(var j=0; j<this.minus2.length; j++){
+                if(Math.abs(this.minus2[j])>100){
+                    this.minus.push(this.minus2[j])
+                }         
             }
             for(var i=0;i<this.count-1;i++){
                 this.RR[i] = this.minus[i+1] - this.minus[i]    //RR2-RR1

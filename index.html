@@ -41,7 +41,8 @@
         <!-- <h2> HRV is .... </h2> -->
         <!-- call app.js -->
             <div class="container" id="webhrv">
-                <h1 class="border text-select">{{total}} </h1>
+                <div class="border text-select"><h1 v-if="total.length == 0"> 00.00</h1> 
+                    <h1 v-else> {{total}}</h1></div>
                 
                 <div class="border">   
                 <canvas id="myChart" style="height: 280px; width: 100%"></canvas>
