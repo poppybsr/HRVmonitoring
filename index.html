@@ -41,12 +41,14 @@
         <!-- <h2> HRV is .... </h2> -->
         <!-- call app.js -->
             <div class="container" id="webhrv">
-                <div class="border text-select"><h1 v-if="total.length == 0"> 00.00</h1> 
-                    <h1 v-else> {{total}}</h1></div>
-                    <!-- {{test}} -->
+                <div class="border text-select"><h1 v-if="total.length == 0"> Loading...</h1> 
+                    <h1 v-else>HRV: {{total}} m <br>
+                        HR: {{heartRate}} bpm</h1>
+                </div>
+                    HR {{heartRate}}<br>
                     {{baseLine}} <br>
-                    {{baseLine2}} <br>
-                    {{minus2}} <br>
+                    {{avgBaseline}} <br>
+                    <!-- {{minus2}} <br> -->
                     {{minus}} <br>
                     <!-- {{arrTimeFilter}} <br>
                     {{arrFilter}} <br> -->
