@@ -28,6 +28,13 @@
 
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <style>
+        .newspaper {
+          column-count: 2;
+          column-gap: 40px;
+          column-rule-style: solid;
+        }
+        </style>
 
 </head>
   
@@ -37,22 +44,27 @@
       <!-- section -->
     <section class="masthead d-flex">
         <div class="container text-center">
-        <h1 class="mb-1"> HRV Monitoring </h1>
+        <h1> HRV Monitoring </h1>
+        
         <!-- <h2> HRV is .... </h2> -->
         <!-- call app.js -->
             <div class="container" id="webhrv">
-                <div class="border text-select"><h1 v-if="total.length == 0"> Loading...</h1> 
-                    <h1 v-else>HRV: {{total}} m <br>
-                        HR: {{heartRate}} bpm</h1>
+                <div class="border newspaper text-center"><h1 v-if="total.length == 0"> Loading...</h1> 
+                    <h1 v-else>HRV<br><div class="text-primary"> {{total}}</div>
+                        HR<br><div class="text-primary"> {{heartRate}}</div> </h1>
                 </div>
-                    HR {{heartRate}}<br>
+                <!-- <div class="border"><h1 v-if="total.length == 0"> Loading...</h1> 
+                    <h1 v-else>HR: {{heartRate}} m </h1>
+                </div> -->
+                    <!-- HR {{heartRate}}<br>
                     {{baseLine}} <br>
                     {{avgBaseline}} <br>
-                    <!-- {{minus2}} <br> -->
+                    {{minus2}} <br>
                     {{minus}} <br>
-                    <!-- {{arrTimeFilter}} <br>
+                    {{arrTimeFilter}} <br>
                     {{arrFilter}} <br> -->
                     {{dataFilter}}
+                    <br>
                 <div class="border">   
                 <canvas id="myChart" style="height: 280px; width: 100%"></canvas>
                 </div>

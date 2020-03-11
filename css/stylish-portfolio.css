@@ -43,9 +43,9 @@ h6 {
 
 .border{
   background-color: whitesmoke;
-  padding-top: 50px;
+  padding-top: 30px;
   padding-right: 30px;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
   padding-left: 80px;
 }
 
@@ -99,7 +99,7 @@ h6 {
   display: table;
   width: 100%;
   height: auto;
-  padding-top: 8rem;
+  padding-top: 3rem;
   padding-bottom: 8rem;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/bg-head.jpg");
   background-position: center center;

@@ -90,7 +90,8 @@ new Vue({
             for (var i=0; i<this.dataFilter.length; i++){
                 this.diffTime = this.dataFilter[i]-this.dataFilter[0]
             }
-            this.heartRate=((this.diffTime/(this.pushValue-1))/1000)*60
+            // this.heartRate=((this.diffTime/(this.pushValue-1))/1000)*60
+            this.heartRate=((this.pushValue-1)/(this.diffTime/1000))*60
             this.heartRate=this.heartRate.toFixed(0) 
             console.log(this.heartRate)
             // console.log(this.diffTime)
@@ -208,33 +209,11 @@ new Vue({
             // push data from database to array
             this.values.push(snapshot.val().value)
             this.times.push(snapshot.val().time)
-            this.chart();
             //console.log(snapshot.val().time); 
 
-            // if(this.maxValue <  snapshot.val().value){
-            //     this.maxValue = snapshot.val().value;
-            //     this.maxTime = snapshot.val().time;
-            //     // this.countDrop=0;
-            //     // console.log("value Increase")
-            //     this.countDrop=1
-            // }else{
-            //     // console.log("value Drop")
-            //     this.countDrop--
-            // }
-            // if(this.countDrop==0){
-            //     var tempData = [];
-            //     tempData[0] = this.maxValue;
-            //     tempData[1] = this.maxTime;
-            //     this.arrMax.push(tempData)
-            //     this.maxValue = snapshot.val().value;
-            //     this.maxTime = snapshot.val().time;
-            //     this.countDrop--;
-            //     // console.log(this.maxValue)
-            // }
             this.calculate(); 
             this.filter();
-            // this.heartBeat();
-            // this.chart();
+            this.chart();
             
         }) 
         
