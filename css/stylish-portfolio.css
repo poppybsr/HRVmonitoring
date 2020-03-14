@@ -43,10 +43,10 @@ h6 {
 
 .border{
   background-color: whitesmoke;
-  padding-top: 30px;
+  padding-top: 10px;
   padding-right: 30px;
-  padding-bottom: 30px;
-  padding-left: 80px;
+  padding-bottom: 10px;
+  padding-left: 30px;
 }
 
 .text-faded {

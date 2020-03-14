@@ -31,7 +31,7 @@
     <style>
         .newspaper {
           column-count: 2;
-          column-gap: 40px;
+          column-gap: 20px;
           column-rule-style: solid;
         }
         </style>
@@ -45,17 +45,32 @@
     <section class="masthead d-flex">
         <div class="container text-center">
         <h1> HRV Monitoring </h1>
-        
-        <!-- <h2> HRV is .... </h2> -->
-        <!-- call app.js -->
+
+
+                <!-- input age -->
+        <!-- <form>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="ageInput" class="sr-only">Age</label>
+              <input type="number" class="form-control" id="ageInput" placeholder="Age">
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+        </form> -->
+
+        <form>
+            <select name="gender" class="default-select mb-3">
+              <option selected>Gender</option>
+              <option value="100">Female</option>
+              <option value="200">Male</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+                <!-- show output from calculate&chart -->
             <div class="container" id="webhrv">
                 <div class="border newspaper text-center"><h1 v-if="total.length == 0"> Loading...</h1> 
                     <h1 v-else>HRV<br><div class="text-primary"> {{total}}</div>
                         HR<br><div class="text-primary"> {{heartRate}}</div> </h1>
                 </div>
-                <!-- <div class="border"><h1 v-if="total.length == 0"> Loading...</h1> 
-                    <h1 v-else>HR: {{heartRate}} m </h1>
-                </div> -->
                     <!-- HR {{heartRate}}<br>
                     {{baseLine}} <br>
                     {{avgBaseline}} <br>
@@ -64,24 +79,12 @@
                     {{arrTimeFilter}} <br>
                     {{arrFilter}} <br> -->
                     {{dataFilter}}
+                    {{gender}}
                     <br>
-                <div class="border">   
-                <canvas id="myChart" style="height: 280px; width: 100%"></canvas>
-                </div>
+                    <div class="border">   
+                        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                    </div>
 
-                <!-- <div v-for="abc in arrMax">
-                    <h1 class="border text-select">{{abc[1]}}</h1> 
-                </div> -->
-
-        <!-- input age -->
-        <!-- <form>
-            <h2>Enter your age<br></Input></h2><br>
-            <div class="form-group mx-sm-3 mb-2">
-              <label for="ageInput" class="sr-only">Age</label>
-              <input type="number" class="form-control" id="ageInput" placeholder="Age">
-            </div>
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-        </form> -->
 
         <div class="overlay"></div>
     </section>

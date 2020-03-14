@@ -37,13 +37,16 @@ new Vue({
 // heartBeat function
         diffTime:'',
         heartRate:'',
+        gender:'',
 
     },
     methods:{
-        // storeMessage:function(){
-        //     messageRef.push({time:this.time,value:this.valueECG})
-        //     this.time=''
-        // },
+        storeMessage:function(){
+            // messageRef.push({time:this.time,value:this.valueECG})
+            // this.time=''
+            console.log(this.gender)
+        },
+
 
         filter:function(){
             for (var i=0; i<this.values.length; i++){
@@ -93,7 +96,7 @@ new Vue({
             // this.heartRate=((this.diffTime/(this.pushValue-1))/1000)*60
             this.heartRate=((this.pushValue-1)/(this.diffTime/1000))*60
             this.heartRate=this.heartRate.toFixed(0) 
-            console.log(this.heartRate)
+            // console.log(this.heartRate)
             // console.log(this.diffTime)
             // console.log(this.pushValue)
 
@@ -128,74 +131,47 @@ new Vue({
             // console.log(this.sum)
         },
 
-        chart:function(){
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var chart = new Chart(ctx, {
-            type: 'line',
-            // The data for our dataset
-            
-            data: {
-                labels:[] = this.times,
-                datasets: [{
-                    label: 'ECG values',
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
-                    lineTension:'0.3',
-                    pointBorderColor:'',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data:[] = this.values
-                }]
-                
-            },
-            options: {
-                    labels: {
-                        hidden:true
-                    }
-
-            }
-        });
-
-        }
-    },
-
     // chart fix 
-    //     chart:function(){
-    //         var limit = 1000;
-    //         var data = [];
-    //         var dataSeries = { type: "line" };
-    //         var dataPoints = [];
-    //         for (var i = 0; i < limit; i++) {
-    //             dataPoints.push({
-    //                 x: i*10,
-    //                 y: this.values2[i]
-    //             });
-    //         }
-    //         dataSeries.dataPoints = dataPoints;
-    //         data.push(dataSeries);
-        
-    //         //Better to construct options first and then pass it as a parameter
-    //         var options = {
-    //             backgroundColor: 'rgba(0, 0, 0, 0)',
-    //             zoomEnabled: true,
-    //             animationEnabled: true,
-    //             title: {
-    //                 text: "Electrocardiogram (ECG)"
-    //             },
-    //             axisY: {
-    //                 includeZero: false,
-    //                 lineThickness: 1
-    //             },
-    //             data: data,
-    //             borderColor: 'rgb(255, 99, 132)',
-    //         };
-        
-    //         var chart = new CanvasJS.Chart("chartContainer", options);
-    //         //var startTime = new Date();
-    //         chart.render();
-    //         //var endTime = new Date();
-    //         //document.getElementById("timeToRender").innerHTML = "Time to Render: " + (endTime - startTime) + "ms";
-    // }
+        chart:function(){
+            var count=0;
+            var limit = 1000;
+            var data = [];
+            var dataSeries = { type: "line" };
+            var dataPoints = [];
+            for (var i = 0; i < limit; i++) {
+                dataPoints.push({
+                    x: i*10,
+                    y: this.values[i]
+                });
+                count += 1;
+            }
+            //console.log(count)
+            dataSeries.dataPoints = dataPoints;
+            data.push(dataSeries);
+            
+            var options = {
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                zoomEnabled: true,
+                animationEnabled: true,
+                title: {
+                    text: "Electrocardiogram (ECG)"
+                },
+                axisY: {
+                    includeZero: false,
+                    lineThickness: 1
+                },
+                data: data,
+                borderColor: 'rgb(255, 99, 132)',
+            };
+            
+            var chart = new CanvasJS.Chart("chartContainer", options);
 
-    // },
+            if(count == this.values.length){
+                chart.render();
+            }
+    }
+
+    }, //closed method not chart function
 
     created(){
         // show data from database
