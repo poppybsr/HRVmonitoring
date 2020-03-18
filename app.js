@@ -5,7 +5,6 @@ const messageRef = database.ref("allData");
 new Vue({
     el:"#webhrv",
     data:{
-        // age:'',
 //snapshot data
         values:[], 
         times:[],
@@ -37,16 +36,143 @@ new Vue({
 // heartBeat function
         diffTime:'',
         heartRate:'',
+//input age&gender
         gender:'',
+        inputGender:'',
+        age:'',
+        inputAge:'',
+        goodReport:'Good',
+        badReport:'Bad',
+        messageReport:'age between 10-99 year',
+        dataReport:'',
 
     },
     methods:{
         storeMessage:function(){
-            // messageRef.push({time:this.time,value:this.valueECG})
-            // this.time=''
-            console.log(this.gender)
+            this.inputAge=this.age
+            this.age=''
+            // console.log(this.inputAge)
+            if(this.inputAge<10){
+                this.dataReport=this.messageReport
+                // console.log(this.messageReport)
+            }
+            else if(this.inputAge>99){
+                this.dataReport=this.messageReport
+                // console.log(this.messageReport)
+            }
+            //age 80-99
+            else if(this.inputAge>=80){
+                if(this.total<15){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else if(this.total>27){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else
+                this.dataReport=this.goodReport
+                // console.log(this.goodReport)
+            }
+            //age 70-79
+            else if(this.inputAge>=70){
+                if(this.total<17){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else if(this.total>31){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else
+                this.dataReport=this.goodReport
+                // console.log(this.goodReport)
+            }
+            //age 60-69
+            else if(this.inputAge>=60){
+                if(this.total<16){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else if(this.total>28){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else
+                this.dataReport=this.goodReport
+                // console.log(this.goodReport)
+            }
+            //age 50-59
+            else if(this.inputAge>=50){
+                if(this.total<16){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else if(this.total>34){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else
+                this.dataReport=this.goodReport
+                // console.log(this.goodReport)
+            }
+            //age 40-49
+            else if(this.inputAge>=40){
+                if(this.total<20){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else if(this.total>42){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else
+                this.dataReport=this.goodReport
+                // console.log(this.goodReport)
+            }
+            //age 30-39
+            else if(this.inputAge>=30){
+                if(this.total<24){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else if(this.total>46){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else
+                this.dataReport=this.goodReport
+                // console.log(this.goodReport)
+            }
+            //age 20-29
+            else if(this.inputAge>=20){
+                if(this.total<24){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else if(this.total>62){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else
+                this.dataReport=this.goodReport
+                // console.log(this.goodReport)
+            }
+            //age 10-19
+            else if(this.inputAge>=10){
+                if(this.total<36){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else if(this.total>70){
+                    this.dataReport=this.badReport
+                    // console.log(this.dataReport)
+                }
+                else
+                this.dataReport=this.goodReport
+                // console.log(this.goodReport)
+            }
         },
-
 
         filter:function(){
             for (var i=0; i<this.values.length; i++){
@@ -190,6 +316,7 @@ new Vue({
             this.calculate(); 
             this.filter();
             this.chart();
+            this.storeMessage();
             
         }) 
         
