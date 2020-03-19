@@ -28,36 +28,62 @@
 
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+        function goBack() {
+          window.history.back();
+        }
+    </script>
 
 </head>
   
 <body>
-   
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+          <a class="navbar-brand" href="../test3/index.html">HRV Monitoring</a>
+        </div>
 
+    </nav>
       <!-- section -->
     <section class="masthead d-flex">
         <div class="container text-center">
-        <h1> HRV Monitoring </h1>
-
-        <!-- <form>
-            <select name="gender" class="default-select mb-3">
-              <option selected>Gender</option>
-              <option value="100">Female</option>
-              <option value="200">Male</option>
-            </select>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form> -->
+        <h1> Analyze HRV </h1>
 
                 <!-- show output from calculate&chart -->
             <div class="container" id="webhrv">
-                  <!-- <div class="border">   
-                  <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-                  </div>      -->
-                            <!-- input age -->
-                            <input type="number" id="myNumber" value="">
-                            <button class="btn btn-primary" onclick="myFunction()">Try it</button>
-                            <!-- <p id="demo"></p> -->
-                    
+                <br><br>
+                <div class="border newspaper text-center"><h1 v-if="total.length == 0"> Loading...</h1> 
+                    <h1 v-else>HRV<br><div class="text-primary"> {{total}}</div>
+                    Report <div class="text-primary"> {{dataReport}}</div>
+                    </h1>
+                </div>
+                <br>
+                <!-- input age -->
+                <form @submit.prevent="storeMessage">
+                    <!-- <div>
+                        <textarea name="name" class="form-control" v-model="messageText"></textarea>
+                    </div> -->
+                    <div class="row">
+                        <div class="col">
+                        <!-- <label for="age">Gender</label> -->
+                        <!-- <input type="number" class="form-control" v-model="gender" placeholder="GENDER"><br> -->
+                            <select class="custom-select mr-sm-2" v-model="gender" required>
+                                <option value="">GENDER...</option>
+                                <option value="1">Female</option>
+                                <option value="2">Male</option>
+                            </select>
+                            <div class="invalid-feedback">Example invalid custom select feedback</div>
+                        </div>
+                        <div class="col">
+                        <!-- <label for="age">Input Age</label> -->
+                            <input type="number" class="form-control" v-model="age" placeholder="AGE" required><br>
+                            <div class="invalid-feedback">
+                                Please provide a valid Age.
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-l" lable>Submit</button>
+                </form>
             </div>
 
 

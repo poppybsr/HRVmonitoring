@@ -16,6 +16,12 @@ body {
 
 .btn-xl {
   padding: 1.25rem 2.5rem;
+  font-size: 2rem;
+}
+
+.btn-l {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.5rem;
 }
 
 .content-section {
@@ -38,7 +44,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .border{
@@ -99,7 +105,7 @@ h6 {
   display: table;
   width: 100%;
   height: auto;
-  padding-top: 3rem;
+  padding-top: 1rem;
   padding-bottom: 8rem;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/bg-head.jpg");
   background-position: center center;
@@ -118,7 +124,7 @@ h6 {
     height: 100vh;
   }
   .masthead h1 {
-    font-size: 5.5rem;
+    font-size: 5rem;
   }
 }
 
@@ -353,6 +359,18 @@ a:hover, a:focus, a:active {
   border-color: #ba9106 !important;
 }
 
+.btn-info {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
 .btn-dark {
   color: #fff !important;
 }
@@ -380,4 +398,10 @@ a:hover, a:focus, a:active {
 
 .text-select {
   color: #212F3D !important;
+}
+/* 2 column show */
+.newspaper {
+  column-count: 2;
+  column-gap: 20px;
+  column-rule-style: solid;
 }

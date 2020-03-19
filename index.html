@@ -28,13 +28,6 @@
 
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <style>
-        .newspaper {
-          column-count: 2;
-          column-gap: 20px;
-          column-rule-style: solid;
-        }
-        </style>
 
 </head>
   
@@ -45,20 +38,9 @@
     <section class="masthead d-flex">
         <div class="container text-center">
         <h1> HRV Monitoring </h1>
-
-
-                <!-- input age -->
-        <!-- <form>
-            <div class="form-group mx-sm-3 mb-2">
-              <label for="ageInput" class="sr-only">Age</label>
-              <input type="number" class="form-control" id="ageInput" placeholder="Age">
-              <button type="submit" class="btn btn-primary mb-2">Submit</button>
-            </div>
-        </form> -->
-
-                <!-- show output from calculate&chart -->
+            <!-- show output from calculate&chart -->
+            <!-- call element from vue.js webhrv -->
             <div class="container" id="webhrv">
-
                 <div class="border newspaper text-center"><h1 v-if="total.length == 0"> Loading...</h1> 
                     <h1 v-else>HRV<br><div class="text-primary"> {{total}}</div>
                         HR<br><div class="text-primary"> {{heartRate}}</div> </h1>
@@ -71,22 +53,25 @@
                     {{arrTimeFilter}} <br>
                     {{arrFilter}} <br>
                     {{dataFilter}}
-                    {{gender}} -->
-                    {{dataReport}}
+                    {{gender}}
+                    {{dataReport}} -->
                     <br>
-                    
-                <form class="form-group" @submit.prevent="storeMessage">
-                    <!-- <div>
-                        <textarea name="name" class="form-control" v-model="messageText"></textarea>
-                    </div> -->
+                <!-- input age -->
+                <!-- <form class="form-group" @submit.prevent="storeMessage">
                     <input type="number" class="form-control" v-model="age"><br>
                     <button type="submit" class="btn btn-primary">Comment</button>
-                </form>
+                </form> -->
 
+                <!-- link to analyze page -->
                 <!-- Chart -->
-                  <div class="border">   
-                  <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-                  </div>     
+                <div class="border">   
+                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                </div>     
+                <br>
+
+                <form action="../test3/analyze.html">
+                    <input type="submit" class="btn btn-primary btn-xl" value="Analyze">
+                </form>
 
             </div>
 
