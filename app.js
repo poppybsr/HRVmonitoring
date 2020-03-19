@@ -46,16 +46,19 @@ new Vue({
         messageReport:'age 10-99 y',
         dataReport:'Test',
         testError:'Error',
+// chartError
+        chartError:'',
 
     },
     methods:{
         storeMessage:function(){
+            this.chartError=100
             this.inputAge=this.age
             this.age=''
             this.inputGender=this.gender
             this.gender=''
-            console.log(this.inputGender)
-            console.log(this.inputAge)
+            // console.log(this.inputGender)
+            // console.log(this.inputAge)
             //Female analyze
             if(this.inputGender==1){
                 if(this.inputAge<10){
@@ -278,43 +281,44 @@ new Vue({
 
     // chart fix 
         chart:function(){
-            var count=0;
-            var limit = 1000;
-            var data = [];
-            var dataSeries = { type: "line" };
-            var dataPoints = [];
-            for (var i = 0; i < limit; i++) {
-                dataPoints.push({
-                    x: i*10,
-                    y: this.values[i]
-                });
-                count += 1;
-            }
-            //console.log(count)
-            dataSeries.dataPoints = dataPoints;
-            data.push(dataSeries);
-            
-            var options = {
-                backgroundColor: 'rgba(0, 0, 0, 0)',
-                zoomEnabled: true,
-                animationEnabled: true,
-                title: {
-                    text: "Electrocardiogram (ECG)"
-                },
-                axisY: {
-                    includeZero: false,
-                    lineThickness: 1
-                },
-                data: data,
-                borderColor: 'rgb(255, 99, 132)',
-            };
-            
-            var chart = new CanvasJS.Chart("chartContainer", options);
+                var count=0;
+                var limit = 1000;
+                var data = [];
+                var dataSeries = { type: "line" };
+                var dataPoints = [];
+                for (var i = 0; i < limit; i++) {
+                    dataPoints.push({
+                        x: i*10,
+                        y: this.values[i]
+                    });
+                    count += 1;
+                }
+                //console.log(count)
+                dataSeries.dataPoints = dataPoints;
+                data.push(dataSeries);
+                
+                var options = {
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    zoomEnabled: true,
+                    animationEnabled: true,
+                    title: {
+                        text: "Electrocardiogram (ECG)"
+                    },
+                    axisY: {
+                        includeZero: false,
+                        lineThickness: 1
+                    },
+                    data: data,
+                    borderColor: 'rgb(255, 99, 132)',
+                };
+                
+                var chart = new CanvasJS.Chart("chartContainer", options);
 
-            if(count == this.values.length){
-                chart.render();
-            }
-    }
+                if(count == this.values.length){
+                    chart.render();
+                }
+            
+        }
 
     }, //closed method not chart function
 
@@ -331,14 +335,12 @@ new Vue({
             this.values.push(snapshot.val().value)
             this.times.push(snapshot.val().time)
             //console.log(snapshot.val().time); 
-
             this.calculate(); 
             this.filter();
-            this.chart();
             this.storeMessage();
-            
+            this.chart();         
         }) 
-        
+ 
 
 
         
