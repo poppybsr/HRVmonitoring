@@ -41,8 +41,8 @@
             <!-- show output from calculate&chart -->
             <!-- call element from vue.js webhrv -->
             <div class="container" id="webhrv">
-                <div class="border newspaper text-center"><h1 v-if="total.length == 0"> Loading...</h1> 
-                    <h1 v-else>HRV<br><div class="text-primary"> {{total}}</div>
+                <div class="border newspaper1 text-center"><h1 v-if="total == 0"> Loading...</h1> 
+                    <h1 v-else><div class="newspaper2">HRV<br><div class="text-primary"> {{total}}</div>
                         HR<br><div class="text-primary"> {{heartRate}}</div> </h1>
                 </div>
                     <!-- HR {{heartRate}}<br>

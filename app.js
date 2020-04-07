@@ -41,10 +41,10 @@ new Vue({
         inputGender:'',
         age:'',
         inputAge:'',
-        goodReport:'Good',
-        badReport:'Bad',
+        goodReport:'Healthy',
+        badReport:'Unhealthy',
         messageReport:'age 10-99 y',
-        dataReport:'Test',
+        dataReport:'Fill Out Data',
         testError:'Error',
 // chartError
         chartError:'',
@@ -242,7 +242,7 @@ new Vue({
                 this.diffTime = this.dataFilter[i]-this.dataFilter[0]
             }
             // this.heartRate=((this.diffTime/(this.pushValue-1))/1000)*60
-            this.heartRate=((this.pushValue-1)/(this.diffTime/1000))*60
+            this.heartRate=((this.pushValue)/(10000/1000))*60 //ใช้เวลาวัด 10 วินาที
             this.heartRate=this.heartRate.toFixed(0) 
             // console.log(this.heartRate)
             // console.log(this.diffTime)

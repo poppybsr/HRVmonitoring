@@ -400,7 +400,13 @@ a:hover, a:focus, a:active {
   color: #212F3D !important;
 }
 /* 2 column show */
-.newspaper {
+.newspaper1 {
+  column-count: 1;
+  column-gap: 20px;
+  column-rule-style: solid;
+}
+
+.newspaper2 {
   column-count: 2;
   column-gap: 20px;
   column-rule-style: solid;
