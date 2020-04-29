@@ -14,7 +14,7 @@ new Vue({
         // valueECG:'',
 // calculate
         minus:[], 
-        // minus2:[],
+        minus2:[],
         RR:[],
         sum:'',
         count:'',
@@ -33,6 +33,8 @@ new Vue({
         arrTimeFilter:[],
         baseLine:'',
         avgBaseline:'',
+        dataFilter2:[],
+        pushValue2:'',
 // heartBeat function
         diffTime:'',
         heartRate:'0',
@@ -213,18 +215,17 @@ new Vue({
             // console.log(this.avgBaseline)
 
             this.pushValue=0
+            this.pushValue2=0
             for (var i=0; i<this.arrFilter.length; i++){
                 // if(this.arrFilter[i]>2500){
                 if(this.arrFilter[i]-this.avgBaseline>200){ // check peak data with base line
                     //check data(value) drop
-                    if(this.arrFilter[i]-this.arrFilter[i+2]>600){
+                    if(this.arrFilter[i]-this.arrFilter[i+2]>600 && this.arrFilter[i]-this.arrFilter[i-2]>200){
                         //check data(value) before&after peak <peak
-                        if(this.arrFilter[i]-this.arrFilter[i+1]>0&&this.arrFilter[i]-this.arrFilter[i-1]>0){
+                        if(this.arrFilter[i]-this.arrFilter[i+1]>-1 && (this.arrFilter[i]-this.arrFilter[i-1]>-1)){
                             this.dataFilter[this.pushValue]=this.arrTimeFilter[i]
                             this.pushValue+=1     
-                            // console.log(this.pushValue)                          
                         }
-                         
                     }
                 }
             }
@@ -242,23 +243,23 @@ new Vue({
                 this.diffTime = this.dataFilter[i]-this.dataFilter[0]
             }
             // this.heartRate=((this.diffTime/(this.pushValue-1))/1000)*60
-            this.heartRate=((this.pushValue)/(10000/1000))*60 //ใช้เวลาวัด 10 วินาที
-            this.heartRate=this.heartRate.toFixed(0) 
+            console.log(this.pushValue)
+            this.heartRate=((this.minus2.length+1)*4) //ใช้เวลาวัด 15 วินาที
+            // this.heartRate=this.heartRate
             // console.log(this.heartRate)
             // console.log(this.diffTime)
-            // console.log(this.pushValue)
 
             for (var i=0; i<this.count; i++){
-                this.minus[i] = this.dataFilter[i+1] - this.dataFilter[i]     //time2-time1 
+                this.minus2[i] = this.dataFilter[i+1] - this.dataFilter[i]     //time2-time1 
             }
-            // this.pushValue=0
-            // for(var i=0; i<this.minus2.length; i++){
-            //     if(this.minus2[i]>100){
-            //             this.minus[this.pushValue] = this.minus2[i]
-            //             this.pushValue+=1
-            //             // console.log(this.minus2[i]+'#'+i)
-            //         }
-            // }
+            this.pushValue=0
+            for(var i=0; i<this.minus2.length; i++){
+                if(this.minus2[i]>100){
+                        this.minus[this.pushValue] = this.minus2[i]
+                        this.pushValue+=1
+                        // console.log(this.minus2[i]+'#'+i)
+                    }
+            }
             // console.log(this.minus)    
             for(var i=0;i<this.minus.length-1;i++){
                 this.RR[i] = this.minus[i+1] - this.minus[i]    //RR2-RR1
@@ -282,7 +283,7 @@ new Vue({
     // chart fix 
         chart:function(){
                 var count=0;
-                var limit = 1000;
+                var limit = 1500;
                 var data = [];
                 var dataSeries = { type: "line" };
                 var dataPoints = [];
