@@ -23,10 +23,6 @@
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.min.css" rel="stylesheet">
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script> -->
-
-    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 </head>
@@ -45,30 +41,7 @@
                     <h1 v-else><div class="newspaper2">HRV<br><div class="text-primary"> {{total}}</div>
                         HR<br><div class="text-primary"> {{heartRate}}</div> </h1>
                 </div>
-                    <!-- HR {{heartRate}}<br>
-                    {{baseLine}} <br>
-                    {{avgBaseline}} <br>
-                    {{minus2}} <br>
-                    {{minus}} <br>
-                    {{arrTimeFilter}} <br>
-                    {{arrFilter}} <br>
-                    {{dataFilter}}
-                    {{gender}}
-                    {{dataReport}} -->
-                    <!-- {{arrFilter}} <br> -->
-                    {{minus}} <br>
-                    {{minus2}} <br>
-                    {{avgBaseline}} <br>
-                    {{dataFilter}}
                     <br>
-                <!-- input age -->
-                <!-- <form class="form-group" @submit.prevent="storeMessage">
-                    <input type="number" class="form-control" v-model="age"><br>
-                    <button type="submit" class="btn btn-primary">Comment</button>
-                </form> -->
-
-                <!-- link to analyze page -->
-                <!-- Chart -->
                 <div class="border">   
                     <div id="chartContainer" style="height: 300px; width: 100%;" ></div>
                 </div>     
@@ -88,19 +61,6 @@
           <p class="text-muted small mb-0"> created by 590610637&590610662</p>
         </div>
     </footer>
-
-    <!-- <div class="container col-md-6" id="age">
-        <h2>Project 492 </h2>
-        <div>{{total}}</div>
-        <div>{{values}}</div>
-        <div class="card" v-for="time in values">
-            <div class="card-body">
-                <h5 class="card-title">time {{time}}</h5>
-                <p class="card-text text-muted">value {{time.value}}</p>
-            </div>
-        </div>
-        <hr>
-    </div> -->
     
     <!-- bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -124,16 +84,6 @@
     appId: "1:1063968742264:web:2a40df3abfb512371d068d",
     measurementId: "G-YHQZ3RL38S"
   };
-    // var firebaseConfig = {
-    //     apiKey: "AIzaSyBhkEZt1obNzRCL9KtbagXwddpffj1Wyus",
-    //     authDomain: "lab5-b4f5a.firebaseapp.com",
-    //     databaseURL: "https://lab5-b4f5a.firebaseio.com",
-    //     projectId: "lab5-b4f5a",
-    //     storageBucket: "lab5-b4f5a.appspot.com",
-    //     messagingSenderId: "950695775022",
-    //     appId: "1:950695775022:web:d285ede0f36ea9769448bf"
-    // };
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     </script>
     <script src="app.js" charset="utf-8"></script>
